@@ -1,0 +1,25 @@
+# Step Function With Task Timer(Wait timer)
+{
+  "StartAt": "WaitforSometime", 
+  "States": {
+    "WaitforSometime": {
+      "Comment": "Wait for some time",
+      "Type": "Wait",
+      "Seconds":2, 
+      "Next": "Squarefunction"
+    },
+    "Squarefunction": {
+      "Comment": "Calculate Square function ",
+      "Type": "Task",
+      "Resource":"arn:aws:lambda:your_resin:your_id:function:calcSqure",
+      "TimeoutSeconds":10,
+      "Next": "HelloWorld"
+    },
+    "HelloWorld": {
+      "Comment": "Hello",
+      "Type": "Pass",
+      "Result": "Hello World!",
+      "End": true
+    }
+  }
+}
