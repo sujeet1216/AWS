@@ -1,0 +1,11 @@
+#Lambda Function Name: calcSqure
+import json
+
+def lambda_handler(event, context):
+    Value = event['Value']
+    Value = Value * Value
+    retval = {'Value': Value}
+    return {
+        'statusCode': 200,
+        'body': retval
+    }
