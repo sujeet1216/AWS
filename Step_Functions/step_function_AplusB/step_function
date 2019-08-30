@@ -4,7 +4,7 @@
   "States": {
     "AplusB": {
       "Type": "Task",
-      "Resource": "arn:aws:lambda:ap-south-1:809160705184:function:AplusB",
+      "Resource": "arn:aws:lambda:your_resion_name:your_account_id:function:AplusB",
       "Next": "CheckAplusB"
     },
 "CheckAplusB": {
@@ -24,7 +24,7 @@
 }	,
     "PrintResults": {
       "Type": "Task",
-      "Resource": "arn:aws:lambda:ap-south-1:809160705184:function:PrintSum",
+      "Resource": "arn:aws:lambda:your_resion_name:your_account_id:function:PrintSum",
       "End": true
     },
 "IncrementAB": {
@@ -37,7 +37,7 @@
            "IncrementA": {
              "Type": "Task",
              "Resource":
-               "arn:aws:lambda:ap-south-1:809160705184:function:IncrementA",
+               "arn:aws:lambda:your_resion_name:your_account_id:function:IncrementA",
              "End": true
            }
          }
@@ -48,7 +48,7 @@
            "IncrementB": {
              "Type": "Task",
              "Resource":
-               "arn:aws:lambda:ap-south-1:809160705184:function:IncrementB",
+               "arn:aws:lambda:your_resion_name:your_account_id:function:IncrementB",
              "End": true
            }
          }
@@ -57,7 +57,7 @@
     },
     "FormatInputs": {
       "Type": "Task",
-      "Resource": "arn:aws:lambda:ap-south-1:809160705184:function:Formatinput",
+      "Resource": "arn:aws:lambda:your_resion_name:your_account_id:function:Formatinput",
       "Next": "wait_ten_seconds"
     },	
 "wait_ten_seconds": {
