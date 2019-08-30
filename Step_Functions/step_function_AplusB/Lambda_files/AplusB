@@ -1,0 +1,16 @@
+#Lambda Name: AplusB
+
+from __future__ import print_function
+
+import json
+
+print('Loading function')
+
+
+def lambda_handler(event, context):
+    value1 = event['A']
+    value2 = event['B']
+    
+    v_SumAB = value1 + value2
+    retval = {"A":value1, "B": value2, "SumAB": v_SumAB}
+    return(retval)
