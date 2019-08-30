@@ -1,0 +1,69 @@
+{
+  "Comment": "An example of the AWS Step Functions",
+  "StartAt": "AplusB",
+  "States": {
+    "AplusB": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:ap-south-1:809160705184:function:AplusB",
+      "Next": "CheckAplusB"
+    },
+"CheckAplusB": {
+  "Type": "Choice",
+  "Choices": [
+     {
+      "Variable": "$.SumAB",
+      "NumericGreaterThanEquals": 10,
+      "Next": "PrintResults"
+    },
+  {
+      "Variable": "$.SumAB",
+      "NumericLessThan": 10,
+      "Next": "IncrementAB"
+    }
+]
+}	,
+    "PrintResults": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:ap-south-1:809160705184:function:PrintSum",
+      "End": true
+    },
+"IncrementAB": {
+      "Type": "Parallel",
+      "Next": "FormatInputs",
+      "Branches": [
+        {
+         "StartAt": "IncrementA",
+         "States": {
+           "IncrementA": {
+             "Type": "Task",
+             "Resource":
+               "arn:aws:lambda:ap-south-1:809160705184:function:IncrementA",
+             "End": true
+           }
+         }
+       },
+       {
+         "StartAt": "IncrementB",
+         "States": {
+           "IncrementB": {
+             "Type": "Task",
+             "Resource":
+               "arn:aws:lambda:ap-south-1:809160705184:function:IncrementB",
+             "End": true
+           }
+         }
+       }
+      ]
+    },
+    "FormatInputs": {
+      "Type": "Task",
+      "Resource": "arn:aws:lambda:ap-south-1:809160705184:function:Formatinput",
+      "Next": "wait_ten_seconds"
+    },	
+"wait_ten_seconds": {
+  "Type": "Wait",
+  "Seconds": 10,
+  "Next": "AplusB"
+}	
+  }
+}  
