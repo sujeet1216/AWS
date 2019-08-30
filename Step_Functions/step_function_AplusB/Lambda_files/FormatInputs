@@ -1,0 +1,14 @@
+#Lambda Name: FormatInputs
+
+
+from __future__ import print_function
+
+import json
+
+print('Loading function')
+
+
+def lambda_handler(event, context):
+    retval = {"A": event[0]['A'] , "B": event[1]['B'] }
+    return(retval)
+		
