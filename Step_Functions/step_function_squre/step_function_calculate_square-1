@@ -1,0 +1,12 @@
+#Step Function Name: calculate_Square
+{
+  "StartAt": "Squarefunction", 
+  "States": {
+     "Squarefunction": {
+      "Comment": "Calculate Square function ",
+      "Type": "Task",
+      "Resource":"arn:aws:lambda:your_resin:your_account_id:function:calcSqure",
+       "End": true
+    }
+  }
+}
