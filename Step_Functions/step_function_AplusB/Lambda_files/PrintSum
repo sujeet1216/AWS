@@ -1,0 +1,13 @@
+#Lambda Name: PrintSum
+
+from __future__ import print_function
+
+import json
+
+print('Loading function')
+
+
+def lambda_handler(event, context):
+    print("Sum of A and B is {}".format(event['SumAB']))
+    return(event)
+	
