@@ -1,0 +1,15 @@
+#Lambda Name: IncrementB
+
+from __future__ import print_function
+
+import json
+
+print('Loading function')
+
+
+def lambda_handler(event, context):
+    B = event['B']
+    
+    B = B + 1 
+    retval = {"B":B}
+    return(retval)
